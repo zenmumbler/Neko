@@ -10,18 +10,10 @@
 		8E5006591AA6571500B19FA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006581AA6571500B19FA2 /* AppDelegate.swift */; };
 		8E50065B1AA6571500B19FA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E50065A1AA6571500B19FA2 /* Images.xcassets */; };
 		8E50065E1AA6571500B19FA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E50065C1AA6571500B19FA2 /* MainMenu.xib */; };
-		8E50066A1AA6571500B19FA2 /* NekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006691AA6571500B19FA2 /* NekoTests.swift */; };
+		8E5006751AA657BB00B19FA2 /* cats.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E5006741AA657BB00B19FA2 /* cats.png */; };
+		8E5006771AA65C6800B19FA2 /* NekoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006761AA65C6800B19FA2 /* NekoView.swift */; };
+		8E5006791AA66AE800B19FA2 /* NekoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006781AA66AE800B19FA2 /* NekoController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8E5006641AA6571500B19FA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E50064B1AA6571500B19FA2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E5006521AA6571500B19FA2;
-			remoteInfo = Neko;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8E5006531AA6571500B19FA2 /* Neko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,20 +21,13 @@
 		8E5006581AA6571500B19FA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E50065A1AA6571500B19FA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E50065D1AA6571500B19FA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		8E5006631AA6571500B19FA2 /* NekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E5006681AA6571500B19FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E5006691AA6571500B19FA2 /* NekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NekoTests.swift; sourceTree = "<group>"; };
+		8E5006741AA657BB00B19FA2 /* cats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cats.png; sourceTree = "<group>"; };
+		8E5006761AA65C6800B19FA2 /* NekoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NekoView.swift; sourceTree = "<group>"; };
+		8E5006781AA66AE800B19FA2 /* NekoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NekoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8E5006501AA6571500B19FA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E5006601AA6571500B19FA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,7 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				8E5006551AA6571500B19FA2 /* Neko */,
-				8E5006661AA6571500B19FA2 /* NekoTests */,
+				8E5006731AA6579B00B19FA2 /* Resources */,
 				8E5006541AA6571500B19FA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,7 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				8E5006531AA6571500B19FA2 /* Neko.app */,
-				8E5006631AA6571500B19FA2 /* NekoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,8 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				8E5006581AA6571500B19FA2 /* AppDelegate.swift */,
-				8E50065A1AA6571500B19FA2 /* Images.xcassets */,
-				8E50065C1AA6571500B19FA2 /* MainMenu.xib */,
+				8E5006761AA65C6800B19FA2 /* NekoView.swift */,
+				8E5006781AA66AE800B19FA2 /* NekoController.swift */,
 				8E5006561AA6571500B19FA2 /* Supporting Files */,
 			);
 			path = Neko;
@@ -84,26 +68,20 @@
 		8E5006561AA6571500B19FA2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E50065C1AA6571500B19FA2 /* MainMenu.xib */,
+				8E50065A1AA6571500B19FA2 /* Images.xcassets */,
 				8E5006571AA6571500B19FA2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8E5006661AA6571500B19FA2 /* NekoTests */ = {
+		8E5006731AA6579B00B19FA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8E5006691AA6571500B19FA2 /* NekoTests.swift */,
-				8E5006671AA6571500B19FA2 /* Supporting Files */,
+				8E5006741AA657BB00B19FA2 /* cats.png */,
 			);
-			path = NekoTests;
-			sourceTree = "<group>";
-		};
-		8E5006671AA6571500B19FA2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8E5006681AA6571500B19FA2 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			name = Resources;
+			path = Neko;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,24 +104,6 @@
 			productReference = 8E5006531AA6571500B19FA2 /* Neko.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E5006621AA6571500B19FA2 /* NekoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E5006701AA6571500B19FA2 /* Build configuration list for PBXNativeTarget "NekoTests" */;
-			buildPhases = (
-				8E50065F1AA6571500B19FA2 /* Sources */,
-				8E5006601AA6571500B19FA2 /* Frameworks */,
-				8E5006611AA6571500B19FA2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E5006651AA6571500B19FA2 /* PBXTargetDependency */,
-			);
-			name = NekoTests;
-			productName = NekoTests;
-			productReference = 8E5006631AA6571500B19FA2 /* NekoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -155,10 +115,6 @@
 				TargetAttributes = {
 					8E5006521AA6571500B19FA2 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					8E5006621AA6571500B19FA2 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 8E5006521AA6571500B19FA2;
 					};
 				};
 			};
@@ -176,7 +132,6 @@
 			projectRoot = "";
 			targets = (
 				8E5006521AA6571500B19FA2 /* Neko */,
-				8E5006621AA6571500B19FA2 /* NekoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,13 +143,7 @@
 			files = (
 				8E50065B1AA6571500B19FA2 /* Images.xcassets in Resources */,
 				8E50065E1AA6571500B19FA2 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E5006611AA6571500B19FA2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				8E5006751AA657BB00B19FA2 /* cats.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,26 +155,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E5006591AA6571500B19FA2 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E50065F1AA6571500B19FA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E50066A1AA6571500B19FA2 /* NekoTests.swift in Sources */,
+				8E5006791AA66AE800B19FA2 /* NekoController.swift in Sources */,
+				8E5006771AA65C6800B19FA2 /* NekoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8E5006651AA6571500B19FA2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E5006521AA6571500B19FA2 /* Neko */;
-			targetProxy = 8E5006641AA6571500B19FA2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8E50065C1AA6571500B19FA2 /* MainMenu.xib */ = {
@@ -341,42 +276,6 @@
 			};
 			name = Release;
 		};
-		8E5006711AA6571500B19FA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NekoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Neko.app/Contents/MacOS/Neko";
-			};
-			name = Debug;
-		};
-		8E5006721AA6571500B19FA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = NekoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Neko.app/Contents/MacOS/Neko";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -394,14 +293,6 @@
 			buildConfigurations = (
 				8E50066E1AA6571500B19FA2 /* Debug */,
 				8E50066F1AA6571500B19FA2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		8E5006701AA6571500B19FA2 /* Build configuration list for PBXNativeTarget "NekoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E5006711AA6571500B19FA2 /* Debug */,
-				8E5006721AA6571500B19FA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
