@@ -13,6 +13,7 @@
 		8E5006751AA657BB00B19FA2 /* cats.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E5006741AA657BB00B19FA2 /* cats.png */; };
 		8E5006771AA65C6800B19FA2 /* NekoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006761AA65C6800B19FA2 /* NekoView.swift */; };
 		8E5006791AA66AE800B19FA2 /* NekoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006781AA66AE800B19FA2 /* NekoController.swift */; };
+		8E50067B1AA788A900B19FA2 /* NekoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E50067A1AA788A900B19FA2 /* NekoWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8E5006741AA657BB00B19FA2 /* cats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cats.png; sourceTree = "<group>"; };
 		8E5006761AA65C6800B19FA2 /* NekoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NekoView.swift; sourceTree = "<group>"; };
 		8E5006781AA66AE800B19FA2 /* NekoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NekoController.swift; sourceTree = "<group>"; };
+		8E50067A1AA788A900B19FA2 /* NekoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NekoWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				8E5006581AA6571500B19FA2 /* AppDelegate.swift */,
+				8E50067A1AA788A900B19FA2 /* NekoWindow.swift */,
 				8E5006761AA65C6800B19FA2 /* NekoView.swift */,
 				8E5006781AA66AE800B19FA2 /* NekoController.swift */,
 				8E5006561AA6571500B19FA2 /* Supporting Files */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E50067B1AA788A900B19FA2 /* NekoWindow.swift in Sources */,
 				8E5006591AA6571500B19FA2 /* AppDelegate.swift in Sources */,
 				8E5006791AA66AE800B19FA2 /* NekoController.swift in Sources */,
 				8E5006771AA65C6800B19FA2 /* NekoView.swift in Sources */,

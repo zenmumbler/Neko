@@ -162,4 +162,6 @@ class NekoView : NSView {
 		
 		// TODO: kill this timer when animation changes
 	}
+	
+	override var mouseDownCanMoveWindow: Bool { return true }
 }
