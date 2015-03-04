@@ -8,7 +8,7 @@
 
 import Cocoa
 
-enum CatFrameIndex : Int {
+enum NekoFrameIndex : Int {
 	case Play
 	case Surprise
 	case Sleep1
@@ -46,7 +46,7 @@ enum CatFrameIndex : Int {
 }
 
 
-enum CatAnimation {
+enum NekoAnimation {
 	case Idle
 	case Yawning
 	case Surprised
@@ -72,7 +72,7 @@ enum CatAnimation {
 
 class NekoView : NSView {
 	private var animStartTime = NSDate.timeIntervalSinceReferenceDate()
-	var animation: CatAnimation = .Sleeping {
+	var animation: NekoAnimation = .Sleeping {
 		didSet {
 			// reset animation start time
 			animStartTime = NSDate.timeIntervalSinceReferenceDate()
@@ -80,7 +80,7 @@ class NekoView : NSView {
 		}
 	}
 
-	private static let animFrameMap: [CatAnimation: (CatFrameIndex, CatFrameIndex)] = [
+	private let animFrameMap: [NekoAnimation: (NekoFrameIndex, NekoFrameIndex)] = [
 		.Idle:      (.Sit, .Sit),
 		.Yawning:   (.Yawn, .Yawn),
 		.Surprised: (.Surprise, .Surprise),
@@ -120,7 +120,7 @@ class NekoView : NSView {
 	}
 	
 	private var frameIndex: Int {
-		let frames = NekoView.animFrameMap[animation]!
+		let frames = animFrameMap[animation]!
 		let interval = NSDate.timeIntervalSinceReferenceDate() - animStartTime
 		let index = Int(round(interval % (2 * animationFrameTime()) / animationFrameTime()))
 		return index == 0 ? frames.0.rawValue : frames.1.rawValue

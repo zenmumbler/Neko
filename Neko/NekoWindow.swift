@@ -16,6 +16,7 @@ class NekoWindow : NSWindow {
 		opaque = false
 		backgroundColor = NSColor.clearColor()
 		movableByWindowBackground = true
+		level = kCGScreenSaverWindowLevelKey
 	}
 
 	required init?(coder: NSCoder) {
