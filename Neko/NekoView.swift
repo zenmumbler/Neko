@@ -148,7 +148,7 @@ class NekoView : NSView {
 		setNeedsDisplayInRect(frame)
 	}
 	
-    override func drawRect(dirtyRect: NSRect) {
+	override func drawRect(dirtyRect: NSRect) {
 		super.drawRect(dirtyRect)
 
 		let ctx = NSGraphicsContext.currentContext()?.CGContext
@@ -161,5 +161,5 @@ class NekoView : NSView {
 		NSRunLoop.currentRunLoop().addTimer(nextFrame, forMode: NSDefaultRunLoopMode)
 		
 		// TODO: kill this timer when animation changes
-    }
+	}
 }
