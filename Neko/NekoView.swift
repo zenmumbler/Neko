@@ -108,6 +108,10 @@ class NekoView : NSView {
 	private func animationFrameTime() -> NSTimeInterval {
 		// duration of each frame in seconds
 		switch animation {
+			case .Idle, .Yawning, .Surprised:
+				return 99.0
+			case .Sleeping:
+				return 1.0
 			case .ScratchingNorth, .ScratchingWest, .ScratchingSouth, .ScratchingEast:
 				return 0.3
 			default:
@@ -118,7 +122,7 @@ class NekoView : NSView {
 	private var frameIndex: Int {
 		let frames = NekoView.animFrameMap[animation]!
 		let interval = NSDate.timeIntervalSinceReferenceDate() - animStartTime
-		let index = Int(round(interval % (2 * animationFrameTime())))
+		let index = Int(round(interval % (2 * animationFrameTime()) / animationFrameTime()))
 		return index == 0 ? frames.0.rawValue : frames.1.rawValue
 	}
 
