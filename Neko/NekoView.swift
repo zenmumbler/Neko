@@ -71,9 +71,14 @@ enum CatAnimation {
 
 
 class NekoView : NSView {
-	private var catFrames: [CGImage] = []
-	
-	var animation: CatAnimation = .Sleeping
+	private var animStartTime = NSDate.timeIntervalSinceReferenceDate()
+	var animation: CatAnimation = .Sleeping {
+		didSet {
+			// reset animation start time
+			animStartTime = NSDate.timeIntervalSinceReferenceDate()
+			setNeedsDisplayInRect(frame)
+		}
+	}
 
 	private static let animFrameMap: [CatAnimation: (CatFrameIndex, CatFrameIndex)] = [
 		.Idle:      (.Sit, .Sit),
@@ -98,9 +103,23 @@ class NekoView : NSView {
 		.RunningNorthEast: (.RunNorthEast1, .RunNorthEast2)
 	]
 	
+	private var catFrames: [CGImage] = []
+	
+	private func animationFrameTime() -> NSTimeInterval {
+		// duration of each frame in seconds
+		switch animation {
+			case .ScratchingNorth, .ScratchingWest, .ScratchingSouth, .ScratchingEast:
+				return 0.3
+			default:
+				return 0.5
+		}
+	}
+	
 	private var frameIndex: Int {
-		let frames = NekoView.animFrameMap[animation]
-		return frames?.0.rawValue ?? 0
+		let frames = NekoView.animFrameMap[animation]!
+		let interval = NSDate.timeIntervalSinceReferenceDate() - animStartTime
+		let index = Int(round(interval % (2 * animationFrameTime())))
+		return index == 0 ? frames.0.rawValue : frames.1.rawValue
 	}
 
 	func useCatAtlasTexture(catsAtlas: NSImage) {
@@ -121,6 +140,10 @@ class NekoView : NSView {
 		}
 	}
 	
+	func nextFrame(timer: NSTimer!) {
+		setNeedsDisplayInRect(frame)
+	}
+	
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
@@ -128,5 +151,9 @@ class NekoView : NSView {
 		let sizedIconFrame = CGRectMake(0, 0, 64, 64)
 
 		CGContextDrawImage(ctx, sizedIconFrame, catFrames[frameIndex])
+		
+		let nextFrameTime = NSDate(timeIntervalSinceNow: animationFrameTime())
+		let nextFrame = NSTimer(fireDate: nextFrameTime, interval: 0, target: self, selector: "nextFrame:", userInfo: nil, repeats: false)
+		NSRunLoop.currentRunLoop().addTimer(nextFrame, forMode: NSDefaultRunLoopMode)
     }
 }
