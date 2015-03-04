@@ -149,7 +149,7 @@ class NekoView : NSView {
 	}
 	
     override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+		super.drawRect(dirtyRect)
 
 		let ctx = NSGraphicsContext.currentContext()?.CGContext
 		let sizedIconFrame = CGRectMake(0, 0, 64, 64)
@@ -159,5 +159,7 @@ class NekoView : NSView {
 		let nextFrameTime = NSDate(timeIntervalSinceNow: animationFrameTime())
 		let nextFrame = NSTimer(fireDate: nextFrameTime, interval: 0, target: self, selector: "nextFrame:", userInfo: nil, repeats: false)
 		NSRunLoop.currentRunLoop().addTimer(nextFrame, forMode: NSDefaultRunLoopMode)
+		
+		// TODO: kill this timer when animation changes
     }
 }
