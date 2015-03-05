@@ -11,17 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	var nekoWindow: NSWindow!
+	var nekoWindow: NekoWindow!
 	var nekoController: NekoController!
 
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		let nekoRect = NSMakeRect(500, 500, 64, 64)
-		nekoWindow = NSWindow(contentRect: nekoRect, styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, defer: false)
+		nekoWindow = NekoWindow(contentRect: nekoRect, styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, defer: false)
 
 		nekoController = NekoController()
 		nekoWindow.contentView = nekoController.view
 
-		nekoWindow.orderFrontRegardless()
+		nekoWindow.makeKeyAndOrderFront(nil)
 	}
 
 	func applicationWillTerminate(aNotification: NSNotification) {
