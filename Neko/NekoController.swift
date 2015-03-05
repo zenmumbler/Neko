@@ -54,4 +54,9 @@ CFArrayRef windows =
 		kCGWindowListExcludeDesktopElements,
 		kCGNullWindowID);
 
+
+
+Track mouse events without polling with an CGEventTap
+https://developer.apple.com/library/mac/documentation/Carbon/Reference/QuartzEventServicesRef/index.html#//apple_ref/c/func/CGEventTapCreate
+
 */
