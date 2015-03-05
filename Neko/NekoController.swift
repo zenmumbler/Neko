@@ -21,3 +21,16 @@ class NekoController : NSViewController {
 	}
 
 }
+
+
+/*
+
+Get list of all open windows
+http://stackoverflow.com/a/11403271
+
+CFArrayRef windows =
+	CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly |
+		kCGWindowListExcludeDesktopElements,
+		kCGNullWindowID);
+
+*/
