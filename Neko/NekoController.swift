@@ -35,6 +35,8 @@ class NekoController : NSViewController, NekoMindNotifications {
 		let cats = NSImage(named: "cats.png")
 		nekoView.useCatAtlasTexture(cats!)
 		
+		
+		
 		mind.awaken()
 	}
 

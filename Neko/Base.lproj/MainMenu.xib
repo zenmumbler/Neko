@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7519.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,7 +11,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Neko" customModuleProvider="target"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Neko" customModuleProvider="target">
+            <connections>
+                <outlet property="statusMenu" destination="AYW-bm-g0o" id="FJa-0v-aU6"/>
+            </connections>
+        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Neko" id="1Xt-HY-uBw">
@@ -25,31 +29,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
-                            <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
-                            <menuItem title="Services" id="NMo-om-nkz">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide Neko" keyEquivalent="h" id="Olw-nP-bQN">
-                                <connections>
-                                    <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="hideOtherApplications:" target="-1" id="VT4-aY-XCT"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Show All" id="Kd2-mp-pUS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="unhideAllApplications:" target="-1" id="Dhg-Le-xox"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
                             <menuItem title="Quit Neko" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
@@ -60,17 +39,75 @@
                 </menuItem>
                 <menuItem title="Help" id="wpr-3q-Mcd">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                        <items>
-                            <menuItem title="Neko Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                <connections>
-                                    <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                 </menuItem>
             </items>
+        </menu>
+        <menu id="AYW-bm-g0o">
+            <items>
+                <menuItem title="About Neko" id="lxp-fa-cvx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="Xxb-T8-bNE"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Qo4-5Z-Ahy"/>
+                <menuItem title="Behaviour" enabled="NO" id="dKK-iX-RfI">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Contextual" id="Rqd-lZ-iBC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setBehaviour:" target="Voe-Tx-rLC" id="NO8-ce-kDb"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Chase Cursor" id="t21-IW-Xmg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setBehaviour:" target="Voe-Tx-rLC" id="Jhn-Pi-hgd"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Q09-OV-iBd"/>
+                <menuItem title="Size" enabled="NO" id="VC1-8O-tcP">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="1x" id="xK6-Xk-E77">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setScale:" target="Voe-Tx-rLC" id="lDN-wk-udX"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="2x" id="BwU-Lw-LXB">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setScale:" target="Voe-Tx-rLC" id="bf7-aY-UbX"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Ogw-z4-d9S"/>
+                <menuItem title="Layering" enabled="NO" id="FIb-ao-yMh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="On Desktop" id="11C-Tn-YtU">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setCatLayer:" target="Voe-Tx-rLC" id="JxB-Aa-QZp"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Above All Windows" id="hOo-yK-h9U">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="setCatLayer:" target="Voe-Tx-rLC" id="L0J-PF-rpN"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="J3z-5q-TOi"/>
+                <menuItem title="Quit" id="9n4-ge-veu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-1" id="mcy-qE-F09"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="491.5" y="377.5"/>
         </menu>
     </objects>
 </document>
