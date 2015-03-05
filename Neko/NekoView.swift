@@ -71,6 +71,14 @@ enum NekoAnimation {
 
 
 class NekoView : NSView {
+	var scale: CGFloat = 1 {
+		didSet {
+			let curFrame = (window?.frame)!
+			let newSize = NSMakeRect(curFrame.origin.x, curFrame.origin.y, 32 * scale, 32 * scale)
+			window?.setFrame(newSize, display: true)
+		}
+	}
+
 	private var animStartTime = NSDate.timeIntervalSinceReferenceDate()
 	var animation: NekoAnimation = .Sleeping {
 		didSet {
@@ -126,7 +134,7 @@ class NekoView : NSView {
 		return index == 0 ? frames.0.rawValue : frames.1.rawValue
 	}
 
-	func useCatAtlasTexture(catsAtlas: NSImage) {
+	func useCatlasTexture(catsAtlas: NSImage) {
 		// create 32 frames from the atlas image provided
 		var imageRect = CGRectMake(0, 0, catsAtlas.size.width, catsAtlas.size.height)
 		let cgi = catsAtlas.CGImageForProposedRect(&imageRect, context: nil, hints: nil)?.takeRetainedValue()
@@ -152,9 +160,10 @@ class NekoView : NSView {
 		super.drawRect(dirtyRect)
 
 		let ctx = NSGraphicsContext.currentContext()?.CGContext
-		let sizedIconFrame = CGRectMake(0, 0, 64, 64)
+//		let sizedIconFrame = CGRectMake(0, 0, 64, 64)
 
-		CGContextDrawImage(ctx, sizedIconFrame, catFrames[frameIndex])
+		let windowBounds = (window?.frame)!
+		CGContextDrawImage(ctx, NSMakeRect(0, 0, windowBounds.size.width, windowBounds.size.height), catFrames[frameIndex])
 		
 		let nextFrameTime = NSDate(timeIntervalSinceNow: animationFrameTime())
 		let nextFrame = NSTimer(fireDate: nextFrameTime, interval: 0, target: self, selector: "nextFrame:", userInfo: nil, repeats: false)

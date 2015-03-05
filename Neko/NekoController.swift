@@ -30,16 +30,17 @@ class NekoController : NSViewController, NekoMindNotifications {
 		mind.listener = self
 
 		view = NekoView(frame: NSMakeRect(0, 0, 64, 64))
-		nekoView = view as NekoView // weak alias typed to subclass
+		nekoView = view as! NekoView // weak alias typed to subclass
 
 		let cats = NSImage(named: "cats.png")
-		nekoView.useCatAtlasTexture(cats!)
-		
-		
-		
+		nekoView.useCatlasTexture(cats!)
+
 		mind.awaken()
 	}
 
+	func setScale(scale: Int) {
+		nekoView.scale = CGFloat(scale)
+	}
 }
 
 

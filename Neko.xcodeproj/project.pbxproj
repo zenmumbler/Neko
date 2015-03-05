@@ -61,11 +61,11 @@
 		8E5006551AA6571500B19FA2 /* Neko */ = {
 			isa = PBXGroup;
 			children = (
-				8E5006581AA6571500B19FA2 /* AppDelegate.swift */,
 				8E50067A1AA788A900B19FA2 /* NekoWindow.swift */,
 				8E5006761AA65C6800B19FA2 /* NekoView.swift */,
 				8E6B56591AA7BA1E0002F74D /* NekoMind.swift */,
 				8E5006781AA66AE800B19FA2 /* NekoController.swift */,
+				8E5006581AA6571500B19FA2 /* AppDelegate.swift */,
 				8E5006561AA6571500B19FA2 /* Supporting Files */,
 			);
 			path = Neko;

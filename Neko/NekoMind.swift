@@ -75,11 +75,11 @@ class NekoMind {
 	private func act() {
 		switch state_ {
 			case .Idle:
-				schedule(4) { self.state = .GoingToSleep }
+				schedule(10) { self.state = .GoingToSleep }
 			case .GoingToSleep:
 				schedule(0.8) { self.state = .Sleeping }
 			case .Sleeping:
-				schedule(4) { self.state = .WakingUp }
+				schedule(120) { self.state = .WakingUp }
 			case .WakingUp:
 				schedule(0.8) { self.state = .Idle }
 		}

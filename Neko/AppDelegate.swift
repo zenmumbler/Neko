@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			scale = 2
 		}
 		
-		// TODO: apply scale
+		nekoController.setScale(scale)
 	}
 	
 	@IBAction func setCatLayer(sender: NSMenuItem) {
