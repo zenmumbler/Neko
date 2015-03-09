@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E07EC651AADE8510098C3E6 /* MouseTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E07EC641AADE8510098C3E6 /* MouseTracker.m */; };
 		8E5006591AA6571500B19FA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5006581AA6571500B19FA2 /* AppDelegate.swift */; };
 		8E50065B1AA6571500B19FA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E50065A1AA6571500B19FA2 /* Images.xcassets */; };
 		8E50065E1AA6571500B19FA2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E50065C1AA6571500B19FA2 /* MainMenu.xib */; };
@@ -18,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E07EC641AADE8510098C3E6 /* MouseTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MouseTracker.m; sourceTree = "<group>"; };
+		8E07EC661AADE8630098C3E6 /* MouseTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseTracker.h; sourceTree = "<group>"; };
+		8E07EC671AADE9C10098C3E6 /* Neko-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Neko-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E5006531AA6571500B19FA2 /* Neko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E5006571AA6571500B19FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5006581AA6571500B19FA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 		8E5006551AA6571500B19FA2 /* Neko */ = {
 			isa = PBXGroup;
 			children = (
+				8E07EC641AADE8510098C3E6 /* MouseTracker.m */,
+				8E07EC661AADE8630098C3E6 /* MouseTracker.h */,
 				8E50067A1AA788A900B19FA2 /* NekoWindow.swift */,
 				8E5006761AA65C6800B19FA2 /* NekoView.swift */,
 				8E6B56591AA7BA1E0002F74D /* NekoMind.swift */,
@@ -77,6 +83,7 @@
 				8E50065C1AA6571500B19FA2 /* MainMenu.xib */,
 				8E50065A1AA6571500B19FA2 /* Images.xcassets */,
 				8E5006571AA6571500B19FA2 /* Info.plist */,
+				8E07EC671AADE9C10098C3E6 /* Neko-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 			files = (
 				8E50067B1AA788A900B19FA2 /* NekoWindow.swift in Sources */,
 				8E5006591AA6571500B19FA2 /* AppDelegate.swift in Sources */,
+				8E07EC651AADE8510098C3E6 /* MouseTracker.m in Sources */,
 				8E5006791AA66AE800B19FA2 /* NekoController.swift in Sources */,
 				8E6B565A1AA7BA1E0002F74D /* NekoMind.swift in Sources */,
 				8E5006771AA65C6800B19FA2 /* NekoView.swift in Sources */,
@@ -270,6 +278,7 @@
 				INFOPLIST_FILE = Neko/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Neko/Neko-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -281,6 +290,7 @@
 				INFOPLIST_FILE = Neko/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Neko/Neko-Bridging-Header.h";
 			};
 			name = Release;
 		};

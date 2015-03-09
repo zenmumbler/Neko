@@ -40,10 +40,16 @@ protocol NekoMindNotifications {
 	func stateDidChange(sender: NekoMind)
 }
 
+protocol NekoMindQueries {
+	func physicalLocation() -> CGPoint
+}
+
 
 class NekoMind {
 	private var state_ = NekoState.Idle
 	private var lastStateChange_ = NSDate()
+
+	let queries: NekoMindQueries
 	var listener: NekoMindNotifications?
 	
 	var state: NekoState {
@@ -61,8 +67,15 @@ class NekoMind {
 	}
 	
 	var lastStateChange: NSDate { return lastStateChange_ }
+
+	var targetPosition = CGPointMake(0, 0) {
+		didSet {
+		}
+	}
 	
-	init() {}
+	init(worldQueries: NekoMindQueries) {
+		queries = worldQueries
+	}
 	
 	func awaken() {
 		state = .Idle

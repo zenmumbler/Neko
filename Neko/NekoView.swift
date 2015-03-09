@@ -160,7 +160,6 @@ class NekoView : NSView {
 		super.drawRect(dirtyRect)
 
 		let ctx = NSGraphicsContext.currentContext()?.CGContext
-//		let sizedIconFrame = CGRectMake(0, 0, 64, 64)
 
 		let windowBounds = (window?.frame)!
 		CGContextDrawImage(ctx, NSMakeRect(0, 0, windowBounds.size.width, windowBounds.size.height), catFrames[frameIndex])
