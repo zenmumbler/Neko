@@ -9,22 +9,6 @@
 import Foundation
 
 
-public class Timer {
-	// each instance has its own handler
-	private var handler: (timer: NSTimer) -> () = { (timer: NSTimer) in }
-	
-	public class func start(duration: NSTimeInterval, repeats: Bool, handler:(timer: NSTimer)->()) {
-		var t = Timer()
-		t.handler = handler
-		NSTimer.scheduledTimerWithTimeInterval(duration, target: t, selector: "processHandler:", userInfo: nil, repeats: repeats)
-	}
-	
-	@objc private func processHandler(timer: NSTimer) {
-		self.handler(timer: timer)
-	}
-}
-
-
 enum NekoState {
 	case Idle
 	case GoingToSleep

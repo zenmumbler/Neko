@@ -30,19 +30,7 @@ class NekoController : NSViewController, NekoMindNotifications, NekoMindQueries,
 
 	// query from the NekoMind
 	func physicalLocation() -> CGPoint {
-		let window = nekoView.window!
-		let winFrame = window.frame
-		let winBounds = nekoView.bounds
-
-		// convert window origin point to desktop coordinate space
-		var catHotSpot = winFrame.origin
-		catHotSpot.y = (NSScreen.mainScreen()?.frame.size.height)! - catHotSpot.y
-
-		// use x-center and near-bottom as cat focus point
-		catHotSpot.x += winBounds.size.width / 2
-		catHotSpot.y -= 4 * nekoView.scale
-		
-		return catHotSpot
+		return nekoView.hotSpot
 	}
 
 	// inform NekoMind of mouse position

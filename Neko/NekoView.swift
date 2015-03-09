@@ -156,6 +156,20 @@ class NekoView : NSView {
 		setNeedsDisplayInRect(frame)
 	}
 	
+	var hotSpot: CGPoint {
+		let winFrame = window!.frame
+		
+		// convert window origin point to desktop coordinate space
+		var catHotSpot = winFrame.origin
+		catHotSpot.y = (NSScreen.mainScreen()?.frame.size.height)! - catHotSpot.y
+		
+		// use x-center and near-bottom as cat focus point
+		catHotSpot.x += bounds.size.width / 2
+		catHotSpot.y -= 4 * scale
+		
+		return catHotSpot
+	}
+	
 	override func drawRect(dirtyRect: NSRect) {
 		super.drawRect(dirtyRect)
 
