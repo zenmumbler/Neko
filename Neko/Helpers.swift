@@ -67,7 +67,7 @@ public struct Vec2 {
 	}
 	
 	func angleTo(other: Vec2) -> Float {
-		let cosTh = dot(other)
+		let cosTh = self.normalized().dot(other.normalized())
 		return cosTh < 0 ? acos(-cosTh) : acos(cosTh)
 	}
 }
