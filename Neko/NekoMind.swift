@@ -10,10 +10,10 @@ import Foundation
 
 
 enum NekoState {
-	case Idle
-	case GoingToSleep
-	case Sleeping
-	case WakingUp
+	case idle
+	case goingToSleep
+	case sleeping
+	case wakingUp
 
 //	case Startled
 //	case Running
@@ -21,7 +21,7 @@ enum NekoState {
 
 
 protocol NekoMindNotifications {
-	func stateDidChange(sender: NekoMind)
+	func stateDidChange(_ sender: NekoMind)
 }
 
 protocol NekoMindQueries {
@@ -30,8 +30,8 @@ protocol NekoMindQueries {
 
 
 class NekoMind {
-	private var state_ = NekoState.Idle
-	private var lastStateChange_ = NSDate()
+	fileprivate var state_ = NekoState.idle
+	fileprivate var lastStateChange_ = Date()
 
 	let queries: NekoMindQueries
 	var listener: NekoMindNotifications?
@@ -43,16 +43,16 @@ class NekoMind {
 		
 		set {
 			state_ = newValue
-			lastStateChange_ = NSDate()
+			lastStateChange_ = Date()
 			act()
 			
 			listener?.stateDidChange(self)
 		}
 	}
 	
-	var lastStateChange: NSDate { return lastStateChange_ }
+	var lastStateChange: Date { return lastStateChange_ }
 
-	var targetPosition = CGPointMake(0, 0) {
+	var targetPosition = CGPoint(x: 0, y: 0) {
 		didSet {
 		}
 	}
@@ -62,23 +62,23 @@ class NekoMind {
 	}
 	
 	func awaken() {
-		state = .Idle
+		state = .idle
 	}
 	
-	private func schedule(fromNow: NSTimeInterval, block: () -> ()) {
+	fileprivate func schedule(_ fromNow: TimeInterval, block: @escaping () -> ()) {
 		Timer.start(fromNow, repeats: false) { timer in block() }
 	}
 	
-	private func act() {
+	fileprivate func act() {
 		switch state_ {
-			case .Idle:
-				schedule(10) { self.state = .GoingToSleep }
-			case .GoingToSleep:
-				schedule(0.8) { self.state = .Sleeping }
-			case .Sleeping:
-				schedule(120) { self.state = .WakingUp }
-			case .WakingUp:
-				schedule(0.8) { self.state = .Idle }
+			case .idle:
+				schedule(10) { self.state = .goingToSleep }
+			case .goingToSleep:
+				schedule(0.8) { self.state = .sleeping }
+			case .sleeping:
+				schedule(120) { self.state = .wakingUp }
+			case .wakingUp:
+				schedule(0.8) { self.state = .idle }
 		}
 	}
 }

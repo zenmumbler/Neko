@@ -9,18 +9,18 @@
 import Foundation
 
 
-public class Timer {
+open class Timer {
 	// each instance has its own handler
-	private var handler: (timer: NSTimer) -> () = { (timer: NSTimer) in }
+	fileprivate var handler: (_ timer: Foundation.Timer) -> () = { (timer: Foundation.Timer) in }
 	
-	public class func start(duration: NSTimeInterval, repeats: Bool, handler:(timer: NSTimer)->()) {
-		var t = Timer()
+	open class func start(_ duration: TimeInterval, repeats: Bool, handler:@escaping (_ timer: Foundation.Timer)->()) {
+		let t = Timer()
 		t.handler = handler
-		NSTimer.scheduledTimerWithTimeInterval(duration, target: t, selector: "processHandler:", userInfo: nil, repeats: repeats)
+		Foundation.Timer.scheduledTimer(timeInterval: duration, target: t, selector: #selector(Timer.processHandler(_:)), userInfo: nil, repeats: repeats)
 	}
 	
-	@objc private func processHandler(timer: NSTimer) {
-		self.handler(timer: timer)
+	@objc fileprivate func processHandler(_ timer: Foundation.Timer) {
+		self.handler(timer)
 	}
 }
 
@@ -45,16 +45,16 @@ public struct Vec2 {
 		y = Float(point.y)
 	}
 
-	func dot(other: Vec2) -> Float {
+	func dot(_ other: Vec2) -> Float {
 		return (x * other.x) + (y * other.y)
 	}
 
-	func squaredDistanceTo(other: Vec2) -> Float {
+	func squaredDistanceTo(_ other: Vec2) -> Float {
 		let sdist = self - other
 		return sdist.dot(sdist)
 	}
 	
-	func distanceTo(other: Vec2) -> Float {
+	func distanceTo(_ other: Vec2) -> Float {
 		return sqrt(squaredDistanceTo(other))
 	}
 	
@@ -66,7 +66,7 @@ public struct Vec2 {
 		return self / length()
 	}
 	
-	func angleTo(other: Vec2) -> Float {
+	func angleTo(_ other: Vec2) -> Float {
 		let cosTh = self.normalized().dot(other.normalized())
 		return cosTh < 0 ? acos(-cosTh) : acos(cosTh)
 	}

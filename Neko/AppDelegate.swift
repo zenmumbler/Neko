@@ -18,19 +18,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var statusItem: NSStatusItem!
 	
 	func setupStatusMenu() {
-		let statusBar = NSStatusBar.systemStatusBar()
+		let statusBar = NSStatusBar.system()
 		
-		statusItem = statusBar.statusItemWithLength(-1)
+		statusItem = statusBar.statusItem(withLength: -1)
 		statusItem.menu = statusMenu
 		let menuIcon = NSImage(named: "AppIcon")
 		menuIcon?.size = NSMakeSize(16, 16)
-		menuIcon?.setTemplate(true)
+		menuIcon?.isTemplate = true
 		statusItem.image = menuIcon
 	}
 
-	func applicationDidFinishLaunching(aNotification: NSNotification) {
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		let nekoRect = NSMakeRect(500, 500, 64, 64)
-		nekoWindow = NekoWindow(contentRect: nekoRect, styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, defer: false)
+		nekoWindow = NekoWindow(contentRect: nekoRect, styleMask: NSWindowStyleMask.borderless, backing: NSBackingStoreType.buffered, defer: false)
 
 		nekoController = NekoController()
 		nekoWindow.contentView = nekoController.view
@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		nekoWindow.makeKeyAndOrderFront(nil)
 	}
 
-	@IBAction func setBehaviour(sender: NSMenuItem) {
+	@IBAction func setBehaviour(_ sender: NSMenuItem) {
 		if (sender.title == "Contextual") {
 			NSLog("CTX")
 		}
@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 	
-	@IBAction func setScale(sender: NSMenuItem) {
+	@IBAction func setScale(_ sender: NSMenuItem) {
 		var scale = 1
 		if (sender.title == "2x") {
 			scale = 2
@@ -58,17 +58,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		nekoController.setScale(scale)
 	}
 	
-	@IBAction func setCatLayer(sender: NSMenuItem) {
+	@IBAction func setCatLayer(_ sender: NSMenuItem) {
 		if (sender.title == "On Desktop") {
-			nekoWindow.level = kCGDesktopWindowLevelKey
+			nekoWindow.level = Int(CGWindowLevelKey.desktopWindow.rawValue)
 		}
 		else {
-			nekoWindow.level = kCGScreenSaverWindowLevelKey
+			nekoWindow.level = Int(CGWindowLevelKey.screenSaverWindow.rawValue)
 		}
 		
 	}
 
-	func applicationWillTerminate(aNotification: NSNotification) {
+	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 	}
 

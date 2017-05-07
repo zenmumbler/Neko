@@ -10,24 +10,20 @@ import Cocoa
 
 class NekoWindow : NSWindow {
 
-	override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
+	override init(contentRect: NSRect, styleMask aStyle: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
 		super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
 		
-		opaque = false
-		backgroundColor = NSColor.clearColor()
-		movableByWindowBackground = true
-		level = kCGScreenSaverWindowLevelKey
+		isOpaque = false
+		backgroundColor = NSColor.clear
+		isMovableByWindowBackground = true
+		level = Int(CGWindowLevelKey.screenSaverWindow.rawValue)
 	}
 
-	required init?(coder: NSCoder) {
-	    fatalError("init(coder:) has not been implemented")
-	}
-
-	override var canBecomeMainWindow: Bool {
+	override var canBecomeMain: Bool {
 		return true
 	}
 
-	override var canBecomeKeyWindow: Bool {
+	override var canBecomeKey: Bool {
 		return true
 	}
 }

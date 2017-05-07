@@ -15,16 +15,16 @@ class NekoController : NSViewController, NekoMindNotifications, NekoMindQueries,
 	var mouseTracker = NekoMouseTracker()
 	
 	// notification from the NekoMind
-	func stateDidChange(sender: NekoMind) {
+	func stateDidChange(_ sender: NekoMind) {
 		switch sender.state {
-			case .Idle:
-				nekoView.animation = .Idle
-			case .GoingToSleep:
-				nekoView.animation = .Yawning
-			case .Sleeping:
-				nekoView.animation = .Sleeping
-			case .WakingUp:
-				nekoView.animation = .Yawning
+			case .idle:
+				nekoView.animation = .idle
+			case .goingToSleep:
+				nekoView.animation = .yawning
+			case .sleeping:
+				nekoView.animation = .sleeping
+			case .wakingUp:
+				nekoView.animation = .yawning
 		}
 	}
 
@@ -34,8 +34,8 @@ class NekoController : NSViewController, NekoMindNotifications, NekoMindQueries,
 	}
 
 	// inform NekoMind of mouse position
-	func mouseMovedToX(x: CGFloat, andY y: CGFloat) {
-		mind.targetPosition = CGPointMake(x, y)
+	func mouseMovedTo(x: CGFloat, andY y: CGFloat) {
+		mind.targetPosition = CGPoint(x: x, y: y)
 	}
 
 	override func loadView() {
@@ -50,11 +50,11 @@ class NekoController : NSViewController, NekoMindNotifications, NekoMindQueries,
 
 		mind.awaken()
 		
-		mouseTracker.delegate = self
-		mouseTracker.start()
+		mouseTracker?.delegate = self
+		mouseTracker?.start()
 	}
 
-	func setScale(scale: Int) {
+	func setScale(_ scale: Int) {
 		nekoView.scale = CGFloat(scale)
 	}
 }
