@@ -10,7 +10,7 @@ import Cocoa
 
 class NekoWindow : NSWindow {
 
-	override init(contentRect: NSRect, styleMask aStyle: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool) {
+	override init(contentRect: NSRect, styleMask aStyle: NSWindow.StyleMaskNSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreTypeNSWindow.BackingStoreType, defer flag: Bool) {
 		super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
 		
 		isOpaque = false

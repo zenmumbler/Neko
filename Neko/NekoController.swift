@@ -45,7 +45,7 @@ class NekoController : NSViewController, NekoMindNotifications, NekoMindQueries,
 		view = NekoView(frame: NSMakeRect(0, 0, 64, 64))
 		nekoView = view as! NekoView // weak alias typed to subclass
 
-		let cats = NSImage(named: "cats.png")
+		let cats = NSImage(named: NSImage.Name(rawValue: "cats.png"))
 		nekoView.useCatlasTexture(cats!)
 
 		mind.awaken()

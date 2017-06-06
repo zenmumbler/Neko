@@ -152,7 +152,7 @@ class NekoView : NSView {
 		}
 	}
 	
-	func nextFrame(_ timer: Foundation.Timer!) {
+	@objc func nextFrame(_ timer: Foundation.Timer!) {
 		setNeedsDisplay(frame)
 	}
 	
@@ -161,7 +161,7 @@ class NekoView : NSView {
 		
 		// convert window origin point to desktop coordinate space
 		var catHotSpot = winFrame.origin
-		catHotSpot.y = (NSScreen.main()?.frame.size.height)! - catHotSpot.y
+		catHotSpot.y = (NSScreen.main?.frame.size.height)! - catHotSpot.y
 		
 		// use x-center and near-bottom as cat focus point
 		catHotSpot.x += bounds.size.width / 2
@@ -173,7 +173,7 @@ class NekoView : NSView {
 	override func draw(_ dirtyRect: NSRect) {
 		super.draw(dirtyRect)
 
-		let ctx = NSGraphicsContext.current()?.cgContext
+		let ctx = NSGraphicsContext.current?.cgContext
 
 		let windowBounds = (window?.frame)!
 		ctx?.draw(catFrames[frameIndex], in: NSMakeRect(0, 0, windowBounds.size.width, windowBounds.size.height))

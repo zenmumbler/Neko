@@ -18,11 +18,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var statusItem: NSStatusItem!
 	
 	func setupStatusMenu() {
-		let statusBar = NSStatusBar.system()
+		let statusBar = NSStatusBar.system
 		
 		statusItem = statusBar.statusItem(withLength: -1)
 		statusItem.menu = statusMenu
-		let menuIcon = NSImage(named: "AppIcon")
+		let menuIcon = NSImage(named: NSImage.Name(rawValue: "AppIcon"))
 		menuIcon?.size = NSMakeSize(16, 16)
 		menuIcon?.isTemplate = true
 		statusItem.image = menuIcon
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		let nekoRect = NSMakeRect(500, 500, 64, 64)
-		nekoWindow = NekoWindow(contentRect: nekoRect, styleMask: NSWindowStyleMask.borderless, backing: NSBackingStoreType.buffered, defer: false)
+		nekoWindow = NekoWindow(contentRect: nekoRect, styleMask: NSWindow.StyleMask.borderless, backing: NSWindow.BackingStoreType.buffered, defer: false)
 
 		nekoController = NekoController()
 		nekoWindow.contentView = nekoController.view
